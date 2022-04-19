@@ -229,31 +229,42 @@ img {
 }
 
 #modal {
-	padding: 0;
+	overflow: hidden;
 	margin: auto;
+	background: rgba(24, 23, 21, 0.4);
+	width: 100%;
+	height: 100%;
+	max-width: 100vw;
+	max-height: 100vh;
+	border: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.modal::-webkit-backdrop {
+	background: rgba(24, 23, 21, 0.4);
+	opacity: 0;
+}
+.modal::backdrop {
+	background: rgba(24, 23, 21, 0.4);
+	opacity: 0;
+}
+.modal-container {
 	max-width: clamp(300px, 67.36vw, 1280px);
 	width: 100%;
 	border: none;
 	border-radius: 15px;
-	-webkit-box-shadow: 0 0 100vh 100vh rgba(24, 23, 21, 0.4);
-	box-shadow: 0 0 100vh 150vh rgba(24, 23, 21, 0.4);
-}
-.modal::-webkit-backdrop {
-	background: rgba(24, 23, 21, 0.2);
-	opacity: 0;
-}
-.modal::backdrop {
-	background: rgba(24, 23, 21, 0.2);
-	opacity: 0;
-}
-.modal-container {
-	padding: 0;
-	margin: auto;
-	width: 100%;
 	.box {
 		background: var(--color-white);
 	}
 }
+
 .modal-box {
 	position: relative;
 	.close-button {
@@ -287,10 +298,15 @@ img {
 }
 
 .modal[open] {
-	-webkit-animation: slide-up 500ms forwards, fade-in 500ms forwards;
-	animation: slide-up 500ms forwards, fade-in 500ms forwards;
 	inset: 0;
-	inset-inline-start: -15px;
+	padding: 1em;
+	padding-right: calc(1em + 15px);
+	-webkit-animation: fade-in 500ms forwards;
+	animation: fade-in 500ms forwards;
+	.modal-container {
+		-webkit-animation: slide-up 500ms forwards, fade-in 500ms forwards;
+		animation: slide-up 500ms forwards, fade-in 500ms forwards;
+	}
 }
 /* 
 .modal[open]::backdrop {
@@ -300,10 +316,14 @@ img {
 .modal[closing] {
 	display: block;
 	inset: 0;
-	inset-inline-start: 0;
-	-webkit-animation: slide-down 500ms forwards, fade-out 500ms forwards;
-	animation: slide-down 500ms forwards, fade-out 500ms forwards;
-	pointer-events: none;
+	padding-right: 1em;
+	-webkit-animation: fade-out 500ms forwards;
+	animation: fade-out 500ms forwards;
+	.modal-container {
+		-webkit-animation: slide-down 500ms forwards, fade-out 500ms forwards;
+		animation: slide-down 500ms forwards, fade-out 500ms forwards;
+		pointer-events: none;
+	}
 }
 /* 
 .modal[closing]::backdrop {
@@ -325,7 +345,10 @@ html.noScroll {
 		}
 	}
 	.modal[open] {
-		inset-inline-start: 0;
+		padding: 1em;
+		.modal-container {
+			inset: 0;
+		}
 	}
 }
 
@@ -706,7 +729,7 @@ html.noScroll {
 }
 
 @media (max-width: 1024px) {
-	#modal {
+	.modal-container {
 		max-width: clamp(300px, 69vw, 700px);
 	}
 	.section__content {
