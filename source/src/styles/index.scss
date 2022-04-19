@@ -194,7 +194,7 @@ img {
 	width: 100%;
 	border: none;
 	border-radius: 15px;
-	box-shadow: 0 0 0 100vh rgba(24, 23, 21, 0.4);
+	box-shadow: 0 0 100vh 100vh rgba(24, 23, 21, 0.4);
 }
 .modal::backdrop {
 	background: rgba(24, 23, 21, 0.2);
@@ -242,6 +242,7 @@ img {
 
 .modal[open] {
 	animation: slide-up 500ms forwards, fade-in 500ms forwards;
+	inset: 0;
 	inset-inline-start: -15px;
 }
 /* 
@@ -252,6 +253,7 @@ img {
 .modal[closing] {
 	display: block;
 	inset: 0;
+	inset-inline-start: 0;
 	animation: slide-down 500ms forwards, fade-out 500ms forwards;
 	pointer-events: none;
 }
