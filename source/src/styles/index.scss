@@ -304,8 +304,8 @@ img {
 	-webkit-animation: fade-in 500ms forwards;
 	animation: fade-in 500ms forwards;
 	.modal-container {
-		-webkit-animation: slide-up 500ms forwards, fade-in 500ms forwards;
-		animation: slide-up 500ms forwards, fade-in 500ms forwards;
+		-webkit-animation: slide-up 500ms ease-out forwards, fade-in 500ms forwards;
+		animation: slide-up 500ms ease-out forwards, fade-in 500ms forwards;
 	}
 }
 /* 
@@ -320,8 +320,9 @@ img {
 	-webkit-animation: fade-out 500ms forwards;
 	animation: fade-out 500ms forwards;
 	.modal-container {
-		-webkit-animation: slide-down 500ms forwards, fade-out 500ms forwards;
-		animation: slide-down 500ms forwards, fade-out 500ms forwards;
+		-webkit-animation: slide-down 500ms ease-in forwards,
+			fade-out 500ms forwards;
+		animation: slide-down 500ms ease-in forwards, fade-out 500ms forwards;
 		pointer-events: none;
 	}
 }
