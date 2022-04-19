@@ -34,7 +34,7 @@
 		opacity: 0;
 	}
 }
-@-webkit-keyframes slide-up {
+@-webkit-keyframes slide-in {
 	0% {
 		-webkit-transform: translateY(100%);
 		transform: translateY(100%);
@@ -44,7 +44,7 @@
 		transform: translateY(0%);
 	}
 }
-@keyframes slide-up {
+@keyframes slide-in {
 	0% {
 		-webkit-transform: translateY(100%);
 		transform: translateY(100%);
@@ -54,7 +54,7 @@
 		transform: translateY(0%);
 	}
 }
-@-webkit-keyframes slide-down {
+@-webkit-keyframes slide-out {
 	0% {
 		-webkit-transform: translateY(0%);
 		transform: translateY(0%);
@@ -64,7 +64,7 @@
 		transform: translateY(-100%);
 	}
 }
-@keyframes slide-down {
+@keyframes slide-out {
 	0% {
 		-webkit-transform: translateY(0%);
 		transform: translateY(0%);
@@ -298,14 +298,13 @@ img {
 }
 
 .modal[open] {
-	inset: 0;
 	padding: 1em;
 	padding-right: calc(1em + 15px);
 	-webkit-animation: fade-in 500ms forwards;
 	animation: fade-in 500ms forwards;
 	.modal-container {
-		-webkit-animation: slide-up 500ms ease-out forwards, fade-in 500ms forwards;
-		animation: slide-up 500ms ease-out forwards, fade-in 500ms forwards;
+		-webkit-animation: slide-in 500ms ease-out forwards, fade-in 500ms forwards;
+		animation: slide-in 500ms ease-out forwards, fade-in 500ms forwards;
 	}
 }
 /* 
@@ -314,15 +313,12 @@ img {
 } 
 */
 .modal[closing] {
-	display: block;
-	inset: 0;
 	padding-right: 1em;
 	-webkit-animation: fade-out 500ms forwards;
 	animation: fade-out 500ms forwards;
 	.modal-container {
-		-webkit-animation: slide-down 500ms ease-in forwards,
-			fade-out 500ms forwards;
-		animation: slide-down 500ms ease-in forwards, fade-out 500ms forwards;
+		-webkit-animation: slide-out 500ms ease-in forwards, fade-out 500ms forwards;
+		animation: slide-out 500ms ease-in forwards, fade-out 500ms forwards;
 		pointer-events: none;
 	}
 }
@@ -347,9 +343,9 @@ html.noScroll {
 	}
 	.modal[open] {
 		padding: 1em;
-		.modal-container {
-			inset: 0;
-		}
+	}
+	.modal-container {
+		max-width: clamp(300px, 69vw, 700px);
 	}
 }
 
@@ -730,9 +726,6 @@ html.noScroll {
 }
 
 @media (max-width: 1024px) {
-	.modal-container {
-		max-width: clamp(300px, 69vw, 700px);
-	}
 	.section__content {
 		max-width: 100%;
 	}
