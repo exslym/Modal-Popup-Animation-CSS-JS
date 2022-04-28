@@ -5,6 +5,9 @@
 	0% {
 		opacity: 0;
 	}
+	20% {
+		opacity: 0;
+	}
 	100% {
 		opacity: 1;
 	}
@@ -12,6 +15,9 @@
 
 @keyframes fade-in {
 	0% {
+		opacity: 0;
+	}
+	20% {
 		opacity: 0;
 	}
 	100% {
@@ -303,8 +309,8 @@ img {
 	-webkit-animation: fade-in 500ms forwards;
 	animation: fade-in 500ms forwards;
 	.modal-container {
-		-webkit-animation: slide-in 500ms ease-out forwards, fade-in 500ms forwards;
-		animation: slide-in 500ms ease-out forwards, fade-in 500ms forwards;
+		-webkit-animation: slide-in 700ms ease-in-out forwards;
+		animation: slide-in 700ms ease-in-out forwards;
 	}
 }
 /* 
@@ -317,8 +323,8 @@ img {
 	-webkit-animation: fade-out 500ms forwards;
 	animation: fade-out 500ms forwards;
 	.modal-container {
-		-webkit-animation: slide-out 500ms ease-in forwards, fade-out 500ms forwards;
-		animation: slide-out 500ms ease-in forwards, fade-out 500ms forwards;
+		-webkit-animation: slide-out 500ms ease-in forwards;
+		animation: slide-out 500ms ease-in forwards;
 		pointer-events: none;
 	}
 }
