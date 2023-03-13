@@ -1,0 +1,3 @@
+//! html structure - copy template to your document:
+
+//! styles - copy _modals.scss module to your project and import it in the index.scss
