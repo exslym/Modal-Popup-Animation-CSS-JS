@@ -81,6 +81,8 @@
 	}
 }
 
+$scrollbar: 15px;
+
 :root {
 	--font-main: 'Geometria Narrow', Arial, Helvetica, sans-serif;
 	--font-second: 'Source Sans Pro', Arial, Helvetica, sans-serif;
@@ -131,17 +133,10 @@
 	--gradient-button-hover: linear-gradient(90deg, #a8cd4a 0%, #7bbc49 99.14%);
 }
 
-* {
-	-webkit-box-sizing: border-box;
+*,
+*::after,
+*::before {
 	box-sizing: border-box;
-	&:after {
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-	&:before {
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-	}
 }
 
 body {
@@ -166,9 +161,7 @@ p,
 li {
 	margin: 0;
 	padding: 0;
-	-webkit-font-feature-settings: 'ordn' on;
 	font-feature-settings: 'ordn' on;
-	-webkit-font-feature-settings: 'pnum' on, 'lnum' on;
 	font-feature-settings: 'pnum' on, 'lnum' on;
 }
 sup {
@@ -234,7 +227,7 @@ img {
 	overflow-x: scroll;
 }
 
-#modal {
+#modal1 {
 	overflow: hidden;
 	margin: auto;
 	background: rgba(37, 23, 22, 0.7);
@@ -264,7 +257,7 @@ img {
 
 .modal-box {
 	position: relative;
-	.close-button {
+	.closeButton {
 		position: absolute;
 		right: clamp(10px, 1.31vw, 25px);
 		top: clamp(10px, 1.31vw, 25px);
@@ -344,18 +337,9 @@ html.noScroll {
 .wrapper {
 	background-color: var(--color-white);
 	overflow: hidden;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
 	justify-content: flex-start;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
 	min-height: 100%;
 	width: 100%;
@@ -378,14 +362,8 @@ html.noScroll {
 
 .button {
 	background: var(--gradient-button);
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	border-radius: 200px;
 	min-height: clamp(35px, 4.2vw, 80px);
@@ -417,14 +395,8 @@ html.noScroll {
 
 .list {
 	li {
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
 		align-items: center;
-		-webkit-box-pack: start;
-		-ms-flex-pack: start;
 		justify-content: flex-start;
 		font-size: var(--font-size-var4);
 		line-height: 133%;
@@ -456,7 +428,6 @@ html.noScroll {
 			content: '';
 			left: 0;
 			top: 50%;
-			-webkit-transform: translateY(-50%);
 			transform: translateY(-50%);
 			width: clamp(6px, 0.52vw, 10px);
 			height: clamp(6px, 0.52vw, 10px);
@@ -475,7 +446,6 @@ html.noScroll {
 	background: var(--color-peach);
 	border: 1px solid var(--color-purple);
 	border-radius: 15px;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -494,14 +464,8 @@ html.noScroll {
 				margin-top: clamp(20px, 2.1vw, 40px);
 				margin-bottom: clamp(20px, 2.1vw, 40px);
 				&_item {
-					display: -webkit-box;
-					display: -ms-flexbox;
 					display: flex;
-					-webkit-box-align: center;
-					-ms-flex-align: center;
 					align-items: center;
-					-webkit-box-pack: start;
-					-ms-flex-pack: start;
 					justify-content: flex-start;
 					p {
 						font-size: var(--font-size-var4);
@@ -531,14 +495,8 @@ html.noScroll {
 			}
 			&__list {
 				margin-top: clamp(10px, 1.57vw, 30px);
-				display: -webkit-box;
-				display: -ms-flexbox;
 				display: flex;
-				-webkit-box-align: center;
-				-ms-flex-align: center;
 				align-items: center;
-				-webkit-box-pack: start;
-				-ms-flex-pack: start;
 				justify-content: flex-start;
 				li {
 					margin: 0;
@@ -572,14 +530,8 @@ html.noScroll {
 					grid-area: 1 / 1 / 3 / 2;
 				}
 				&_content {
-					display: -webkit-box;
-					display: -ms-flexbox;
 					display: flex;
-					-webkit-box-align: center;
-					-ms-flex-align: center;
 					align-items: center;
-					-webkit-box-pack: start;
-					-ms-flex-pack: start;
 					justify-content: flex-start;
 				}
 				&_num {
@@ -603,26 +555,14 @@ html.noScroll {
 			&__box {
 				&_content {
 					margin-top: clamp(15px, 1.05vw, 20px);
-					display: -webkit-box;
-					display: -ms-flexbox;
 					display: flex;
-					-webkit-box-align: start;
-					-ms-flex-align: start;
 					align-items: flex-start;
-					-webkit-box-pack: center;
-					-ms-flex-pack: center;
 					justify-content: center;
 				}
 				&_label {
 					margin-bottom: clamp(10px, 2.1vw, 40px);
-					display: -webkit-box;
-					display: -ms-flexbox;
 					display: flex;
-					-webkit-box-align: center;
-					-ms-flex-align: center;
 					align-items: center;
-					-webkit-box-pack: center;
-					-ms-flex-pack: center;
 					justify-content: center;
 					background: url('../../public/images/bg_label.svg');
 					background-position: 0 0;
@@ -638,38 +578,21 @@ html.noScroll {
 					}
 				}
 				&_item {
-					display: -webkit-box;
-					display: -ms-flexbox;
 					display: flex;
-					-webkit-box-orient: vertical;
-					-webkit-box-direction: normal;
-					-ms-flex-direction: column;
 					flex-direction: column;
-					-webkit-box-align: start;
-					-ms-flex-align: start;
 					align-items: flex-start;
-					-webkit-box-pack: start;
-					-ms-flex-pack: start;
 					justify-content: flex-start;
 					img {
 						max-width: clamp(200px, 23.68vw, 450px);
-						-webkit-transform: scale(1);
 						transform: scale(1);
-						-webkit-filter: none;
 						filter: none;
-						-webkit-transition: all 0.2s linear;
 						transition: all 0.2s linear;
 						&:hover {
 							z-index: 10;
-							-webkit-transform: scale(1.1);
 							transform: scale(1.1);
-							-webkit-filter: drop-shadow(
-								-2px 6px clamp(12px, 1vw, 16px) rgba(106, 87, 87, 0.3)
-							);
 							filter: drop-shadow(
 								-2px 6px clamp(12px, 1vw, 16px) rgba(106, 87, 87, 0.3)
 							);
-							-webkit-transition: all 0.2s linear;
 							transition: all 0.2s linear;
 						}
 					}
@@ -684,8 +607,6 @@ html.noScroll {
 
 				&_item2 {
 					max-width: 35px;
-					-ms-flex-item-align: center;
-					-ms-grid-row-align: center;
 					align-self: center;
 					margin-left: clamp(10px, 2.63vw, 50px);
 					margin-right: clamp(10px, 3.52vw, 67px);
@@ -736,28 +657,18 @@ html.noScroll {
 						text-align: center;
 					}
 					&_content {
-						-webkit-box-pack: start;
-						-ms-flex-pack: start;
 						justify-content: flex-start;
 					}
 					&_item img {
-						-webkit-transform: scale(1);
 						transform: scale(1);
-						-webkit-filter: none;
 						filter: none;
-						-webkit-transition: all 0.2s linear;
 						transition: all 0.2s linear;
 						&:hover {
 							z-index: 10;
-							-webkit-transform: scale(1.08);
 							transform: scale(1.08);
-							-webkit-filter: drop-shadow(
-								-2px 6px clamp(8px, 1vw, 10px) rgba(106, 87, 87, 0.3)
-							);
 							filter: drop-shadow(
 								-2px 6px clamp(8px, 1vw, 10px) rgba(106, 87, 87, 0.3)
 							);
-							-webkit-transition: all 0.2s linear;
 							transition: all 0.2s linear;
 						}
 					}
@@ -776,15 +687,8 @@ html.noScroll {
 			.cvd-diagnostics {
 				&__box {
 					&_content {
-						-webkit-box-orient: vertical;
-						-webkit-box-direction: normal;
-						-ms-flex-direction: column;
 						flex-direction: column;
-						-webkit-box-align: start;
-						-ms-flex-align: start;
 						align-items: flex-start;
-						-webkit-box-pack: start;
-						-ms-flex-pack: start;
 						justify-content: flex-start;
 						max-width: clamp(220px, 39vw, 300px);
 					}
@@ -828,12 +732,7 @@ html.noScroll {
 					grid-template-columns: 1fr 1fr;
 				}
 				&__list {
-					-webkit-box-orient: vertical;
-					-webkit-box-direction: normal;
-					-ms-flex-direction: column;
 					flex-direction: column;
-					-webkit-box-align: start;
-					-ms-flex-align: start;
 					align-items: flex-start;
 					li {
 						margin: 0;
@@ -855,19 +754,13 @@ html.noScroll {
 				}
 				&__box {
 					&_item img {
-						-webkit-transform: scale(1);
 						transform: scale(1);
-						-webkit-filter: none;
 						filter: none;
-						-webkit-transition: all 0.2s linear;
 						transition: all 0.2s linear;
 						&:hover {
 							z-index: 10;
-							-webkit-transform: scale(1.05);
 							transform: scale(1.05);
-							-webkit-filter: drop-shadow(-2px 4px 8px rgba(106, 87, 87, 0.25));
 							filter: drop-shadow(-2px 4px 8px rgba(106, 87, 87, 0.25));
-							-webkit-transition: all 0.2s linear;
 							transition: all 0.2s linear;
 						}
 					}

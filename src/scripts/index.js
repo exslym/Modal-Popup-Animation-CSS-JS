@@ -10,6 +10,3 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	modals('modalBlock', 'openButton', 'closeButton');
 });
-
-
-
